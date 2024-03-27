@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  web:
+    image: python-portfolio-api
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/app
+  db:
+    image: mysql
+    ports:
+      - 3307:3306
+    volumes:
+      - ./app/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=adminPass
