@@ -3,4 +3,4 @@ app = FastAPI()
 
 @app.get("/")
 async def home():
-    return {"Hellow":"World"}
+    return {"Hellon":"Men World"}
