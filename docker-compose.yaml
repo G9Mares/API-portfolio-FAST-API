@@ -9,6 +9,7 @@ services:
       - 4000:80
     volumes:
       - ./app:/app
+    # command: sh -c "uvicorn main:app --host 0.0.0.0 --port 80 --reload "
   # db:
   #   image: mysql
   #   ports:

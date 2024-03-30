@@ -11,10 +11,10 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copiar todo el contenido del directorio actual al directorio de trabajo en la imagen
-COPY . .
+COPY ./app .
 
 # Exponer el puerto 80 para que la aplicación pueda ser accesible externamente
 EXPOSE 80
 
 # Comando para ejecutar la aplicación cuando se inicie el contenedor
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80","--reload"]
+CMD ["python", "init.py"]
