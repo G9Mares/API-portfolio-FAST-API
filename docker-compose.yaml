@@ -2,19 +2,18 @@ version: '3.1'
 
 services:
   web:
-    image: fast_api_image
-    depends_on:
-      - db
+    image: fast_api_imagev2
+    # depends_on:
+    #   - db
     ports:
       - 4000:80
     volumes:
       - ./app:/app
-    command: sh -c 'ls'
-  db:
-    image: mysql
-    ports:
-      - 3307:3306
-    volumes:
-      - ./app/db:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=adminPass
+  # db:
+  #   image: mysql
+  #   ports:
+  #     - 3307:3306
+  #   volumes:
+  #     - ./app/db:/var/lib/mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=adminPass

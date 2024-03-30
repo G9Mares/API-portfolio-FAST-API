@@ -1,7 +1,20 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.11
+# Usar la imagen base de Python
+FROM python:3.9
 
-COPY ./requirements.txt /app/requirements.txt
+# Establecer el directorio de trabajo en /app
+WORKDIR /app
 
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+# Copiar el archivo de requisitos (requirements.txt) al directorio de trabajo
+COPY requirements.txt .
 
-COPY ./app /app
+# Instalar las dependencias del proyecto
+RUN pip install -r requirements.txt
+
+# Copiar todo el contenido del directorio actual al directorio de trabajo en la imagen
+COPY . .
+
+# Exponer el puerto 80 para que la aplicación pueda ser accesible externamente
+EXPOSE 80
+
+# Comando para ejecutar la aplicación cuando se inicie el contenedor
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80","--reload"]
